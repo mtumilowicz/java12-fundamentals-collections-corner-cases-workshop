@@ -26,7 +26,7 @@ class ViewTest extends Specification {
         list.set(0, -1)
 
         then:
-        array == [-1, 2, 3]
+        array == [-1, 2, 3] as Integer[]
     }
 
     def 'you cannot add elements to Arrays.asList'() {
