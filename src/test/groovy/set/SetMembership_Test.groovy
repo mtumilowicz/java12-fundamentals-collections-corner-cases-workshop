@@ -15,23 +15,24 @@ class SetMembership_Test extends Specification {
         def b = new Person(name: 'B', lastName: 'B')
 
         when:
-        persons.add(a1)
-        persons.add(a2)
-        persons.add(b)
+        persons.add a1
+        persons.add a2
+        persons.add b
 
         then: 'comparator not only determines order but also membership'
         persons.size() == 2
         persons.collect { it.lastName } == ['A1', 'B']
         and: 'persons size is 2, but contains 3 elements'
-        persons.contains(a1)
-        persons.contains(b)
-        persons.contains(a2)
+        persons.contains a1
+        persons.contains b
+        persons.contains a2
     }
 
     def 'equals between two well-defined and real-life set could NOT be symmetric'() {
+
         given: 'tree with inconsistent-with-equals comparator'
         def tree = new TreeSet<>(String.CASE_INSENSITIVE_ORDER)
-        tree.addAll(["MMM", "aaa", "zzz"])
+        tree.addAll(['MMM', 'aaa', 'zzz'])
 
         and: 'hashSet with exact elements as tree'
         def hash = new HashSet<>(tree)
@@ -41,8 +42,8 @@ class SetMembership_Test extends Specification {
         tree == hash
 
         when: 'we replace MMM with its lowercase equivalent mmm'
-        hash.remove("MMM")
-        hash.add("mmm")
+        hash.remove 'MMM'
+        hash.add 'mmm'
 
         then:
         hash != tree // hash not contains MMM element that is contained in tree
@@ -50,7 +51,3 @@ class SetMembership_Test extends Specification {
     }
 }
 
-class Person {
-    String name
-    String lastName
-}
