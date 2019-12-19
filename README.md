@@ -5,3 +5,6 @@
     * Arrays.asList(array) - proxy to array
 * view collections don't contain their own elements
     * elements are stored elsewhere
+* many comparators for sorting are inconsistent with equals
+* IdentityHashMap keys
+  * membership determined by == , inconsistent with equals
