@@ -35,10 +35,10 @@ class MapAlgorithmProblemTest extends Specification {
         given:
         def valuesOfA = new HashSet<>(mapA.values())
         def copyOfB = new HashMap<>(mapB)
-        def values = copyOfB.values()
+        def valuesOfB = copyOfB.values()
 
         when:
-        values.retainAll(valuesOfA)
+        valuesOfB.retainAll(valuesOfA)
 
         then:
         copyOfB.keySet() == [5, 7] as Set
