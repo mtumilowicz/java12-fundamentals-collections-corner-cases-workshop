@@ -8,3 +8,5 @@
 * many comparators for sorting are inconsistent with equals
 * IdentityHashMap keys
   * membership determined by == , inconsistent with equals
+* Surprisingly easy to create comparators that are
+  inconsistent with equals
