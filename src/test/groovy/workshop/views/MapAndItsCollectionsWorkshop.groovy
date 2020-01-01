@@ -21,7 +21,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         !keySet.contains(6)
 
         when:
-        map.put(6, 'f')
+        map // 6 -> 'f'
 
         then:
         keySet.contains(6)
@@ -35,7 +35,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         !values.contains('f')
 
         when:
-        map.put(6, 'f')
+        map // 6 -> 'f'
 
         then:
         values.contains('f')
@@ -49,7 +49,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         !entrySet.contains(Map.entry(6, 'f'))
 
         when:
-        map.put(6, 'f')
+        map // 6 -> 'f'
 
         then:
         entrySet.contains(Map.entry(6, 'f'))
@@ -63,7 +63,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         map.containsKey(1)
 
         when:
-        keySet.remove(1)
+        keySet // remove 1
 
         then:
         !map.containsKey(1)
@@ -77,7 +77,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         map.containsValue('a')
 
         when:
-        values.remove('a')
+        values // remove 'a'
 
         then:
         !map.containsValue('a')
@@ -92,7 +92,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         map.containsValue('a')
 
         when:
-        entries.remove(Map.entry(1, 'a'))
+        entries // remove entry 1, 'a'
 
         then:
         !map.containsKey(1)
@@ -104,7 +104,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         def keySet = map.keySet()
 
         when:
-        keySet.add(6)
+        keySet // try to add to keySet
 
         then:
         thrown(UnsupportedOperationException)
@@ -115,7 +115,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         def values = map.values()
 
         when:
-        values.add('f')
+        values // try to add to values
 
         then:
         thrown(UnsupportedOperationException)
@@ -126,7 +126,7 @@ class MapAndItsCollectionsWorkshop extends Specification {
         def entrySet = map.entrySet()
 
         when:
-        entrySet.add(Map.entry(6, 'f'))
+        entrySet // try to add to entrySet
 
         then:
         thrown(UnsupportedOperationException)

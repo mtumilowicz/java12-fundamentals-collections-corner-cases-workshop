@@ -21,7 +21,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         !keySet.contains(6)
 
         when:
-        map.put(6, 'f')
+        map[6] = 'f'
 
         then:
         keySet.contains(6)
@@ -35,7 +35,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         !values.contains('f')
 
         when:
-        map.put(6, 'f')
+        map[6] = 'f'
 
         then:
         values.contains('f')
@@ -49,7 +49,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         !entrySet.contains(Map.entry(6, 'f'))
 
         when:
-        map.put(6, 'f')
+        map[6] = 'f'
 
         then:
         entrySet.contains(Map.entry(6, 'f'))
@@ -104,7 +104,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         def keySet = map.keySet()
 
         when:
-        keySet.add(6)
+        keySet << 6
 
         then:
         thrown(UnsupportedOperationException)
@@ -115,7 +115,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         def values = map.values()
 
         when:
-        values.add('f')
+        values << 'f'
 
         then:
         thrown(UnsupportedOperationException)
@@ -126,7 +126,7 @@ class MapAndItsCollectionsAnswer extends Specification {
         def entrySet = map.entrySet()
 
         when:
-        entrySet.add(Map.entry(6, 'f'))
+        entrySet << Map.entry(6, 'f')
 
         then:
         thrown(UnsupportedOperationException)
