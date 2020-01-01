@@ -49,5 +49,31 @@ class SetMembership_Test extends Specification {
         hash != tree // hash not contains MMM element that is contained in tree
         Objects.equals(tree, hash) // contrary to java - in groovy: tree.equals(hash) will return false
     }
+
+    def 'sorted list is often not easily transformable into sorted tree'() {
+        given: 'A, C have the same salary'
+        def a = new Person(name: 'A', salary: 1000)
+        def b = new Person(name: 'B', salary: 1500)
+        def c = new Person(name: 'C', salary: 1000)
+        def persons = [a, b, c]
+        Comparator<Person> salaryOrder = Comparator.comparing({ it.salary })
+
+        expect: 'comparator is not consistent with equals'
+        a != c
+        salaryOrder.compare(a, c) == 0
+
+        when: 'sorted by salary'
+        Collections.sort(persons, salaryOrder)
+
+        then: 'a = c < b'
+        persons == [a, c, b]
+
+        when: 'suppose your manager asks you to maintain a data structure in the same order'
+        def tree = new TreeSet<>(salaryOrder)
+        tree.addAll(persons)
+
+        then: 'only a and b'
+        tree.collect {it.name} == ['A', 'B']
+    }
 }
 
