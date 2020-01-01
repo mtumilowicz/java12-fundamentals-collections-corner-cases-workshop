@@ -25,4 +25,4 @@
         * e.g. comparing strings ignoring case
     * many comparators for sorting are inconsistent with equals (salary)
     * there exists structures in jdk that are internally inconsistent with equals
-        * `IdentityHashMap` (membership determined by `==`) 
+        * `IdentityHashMap` (membership determined by `==`)
