@@ -2,7 +2,7 @@ plugins {
     id 'groovy'
 }
 
-group 'java12-collections-corner-cases-collection-views'
+group 'java12-fundamentals-collections-corner-cases-workshop'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 12

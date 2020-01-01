@@ -1,5 +1,6 @@
-# java12-collections-corner-cases-collection-answers.views
-* [Collections Corner Cases by Stuart Marks](https://www.youtube.com/watch?v=OXdm5BzQ8mI)
+# java12-fundamentals-collections-corner-cases-workshop
+* references
+    * [Collections Corner Cases by Stuart Marks](https://www.youtube.com/watch?v=OXdm5BzQ8mI)
 
 ## preface
 * goals of this workshop: show some corner cases concerning collections
