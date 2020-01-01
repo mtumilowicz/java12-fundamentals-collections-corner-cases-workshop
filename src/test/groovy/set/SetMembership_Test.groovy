@@ -72,7 +72,7 @@ class SetMembership_Test extends Specification {
         def tree = new TreeSet<>(salaryOrder)
         tree.addAll(persons)
 
-        then: 'only a and b'
+        then: 'only a and b, duplicates elided!'
         tree.collect {it.name} == ['A', 'B']
     }
 }
