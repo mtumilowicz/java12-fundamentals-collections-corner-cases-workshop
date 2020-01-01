@@ -2,7 +2,7 @@ package views
 
 import spock.lang.Specification
 
-class Arrays_asList_Test extends Specification {
+class ArraysAsList extends Specification {
 
     // Objects stored into instance fields are not shared between feature methods.
     // Instead, every feature method gets its own object.

@@ -2,7 +2,7 @@ package set
 
 import spock.lang.Specification
 
-class SetMembership_Test extends Specification {
+class SetMembership extends Specification {
 
     def 'sorted set contains no two elements (a, b) where compare(a, b) == 0'() {
 

@@ -2,7 +2,7 @@ package views
 
 import spock.lang.Specification
 
-class Map_Test extends Specification {
+class MapAndItsCollections extends Specification {
 
     def originalMap = Map.of(
             1, 'a',
