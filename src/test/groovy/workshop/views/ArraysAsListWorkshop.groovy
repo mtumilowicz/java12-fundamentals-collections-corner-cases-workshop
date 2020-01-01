@@ -13,7 +13,7 @@ class ArraysAsListWorkshop extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        array[0] = -1
+        array // change array: 1 -> -1
 
         then:
         list == [-1, 2, 3]
@@ -24,7 +24,7 @@ class ArraysAsListWorkshop extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        list.set(0, -1)
+        list // change list, 1 -> -1, operators overloading
 
         then:
         array == [-1, 2, 3] as Integer[]
@@ -35,7 +35,7 @@ class ArraysAsListWorkshop extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        list.add(4)
+        list // add 4, hint: operators overloading
 
         then:
         thrown(UnsupportedOperationException)
@@ -46,7 +46,7 @@ class ArraysAsListWorkshop extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        list.remove(4)
+        list // try to remove
 
         then:
         thrown(UnsupportedOperationException)
