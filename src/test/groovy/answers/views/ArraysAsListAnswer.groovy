@@ -24,7 +24,7 @@ class ArraysAsListAnswer extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        list.set(0, -1)
+        list[0] = -1
 
         then:
         array == [-1, 2, 3] as Integer[]
