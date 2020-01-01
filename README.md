@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/mtumilowicz/java12-fundamentals-collections-corner-cases-workshop.svg?branch=master)](https://travis-ci.com/mtumilowicz/java12-fundamentals-collections-corner-cases-workshop)
+[![Build Status](https://travis-ci.com/mtumilowicz/java12-collections-corner-cases-collection-views.svg?branch=master)](https://travis-ci.com/mtumilowicz/java12-collections-corner-cases-collection-views)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # java12-fundamentals-collections-corner-cases-workshop
