@@ -16,9 +16,7 @@ class SetMembershipWorkshop extends Specification {
         def b = new Person(name: 'B', lastName: 'B')
 
         when:
-        persons.add a1
-        persons.add a2
-        persons.add b
+        persons << a1 << a2 << b
 
         then: 'comparator not only determines order but also membership'
         persons.size() == 2
@@ -34,7 +32,7 @@ class SetMembershipWorkshop extends Specification {
 
         given: 'tree with inconsistent-with-equals comparator'
         def tree = null // hint: TreeSet, case insensitive
-        tree.addAll(['MMM', 'aaa', 'zzz'])
+        tree << 'MMM' << 'aaa' << 'zzz'
 
         and: 'hashSet with exact elements as tree'
         def hash = null // hint: create hashSet from tree
@@ -45,7 +43,7 @@ class SetMembershipWorkshop extends Specification {
 
         when: 'we replace MMM with its lowercase equivalent mmm'
         hash.remove 'MMM'
-        hash.add 'mmm'
+        hash << 'mmm'
 
         then: 'hash not contains MMM element that is contained in tree'
         1 != 1 // verify that hash is not equal to tree
