@@ -13,10 +13,12 @@
 * `Arrays.asList(array)` - proxy to array
     * e.g. if you sort `Arrays.asList(array)` the array is also sorted
 * entrySet, keySet, values are mutable view collections connected to the map
+    * note that you can remove element from it (and it affects the map) but you cannot add element (exception)
 * comparator-equals contract
-    * a comparator c on a answers.set of elements S is said to be consistent with equals if and only 
-    if `c.compare(e1, e2)==0` has the same boolean value as `e1.equals(e2)` for every e1 and e2 in S
+    * a comparator C on a set of elements S is said to be consistent with equals if and only 
+    if `C.compare(e1, e2)==0` has the same boolean value as `e1.equals(e2)` for every e1 and e2 in S
     * it is surprisingly easy to create comparators that are inconsistent with equals
         * e.g. comparing strings ignoring case
-    * many comparators for sorting are inconsistent with equals
-    * `IdentityHashMap` (membership determined by `==`)
+    * many comparators for sorting are inconsistent with equals (salary)
+    * there exists structures in jdk that are internally inconsistent with equals
+        * `IdentityHashMap` (membership determined by `==`)
