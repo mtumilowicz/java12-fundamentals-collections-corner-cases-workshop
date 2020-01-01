@@ -8,7 +8,7 @@ class SetMembershipWorkshop extends Specification {
     def 'sorted answers.set contains no two elements (a, b) where compare(a, b) == 0'() {
 
         given: 'SortedSet with inconsistent-with-equals comparator'
-        SortedSet<Person> persons = new TreeSet<>(Comparator.comparing({ it.name }))
+        SortedSet<Person> persons = null // hint: TreeSet, compare by name
 
         and: 'a1 is equivalent to a2 in the context of this ordering'
         def a1 = new Person(name: 'A', lastName: 'A1')
@@ -23,6 +23,7 @@ class SetMembershipWorkshop extends Specification {
         then: 'comparator not only determines order but also membership'
         persons.size() == 2
         persons.collect { it.lastName } == ['A1', 'B']
+
         and: 'persons size is 2, but contains 3 elements'
         persons.contains a1
         persons.contains b
@@ -32,23 +33,23 @@ class SetMembershipWorkshop extends Specification {
     def 'equals between two well-defined and real-life answers.set could NOT be symmetric'() {
 
         given: 'tree with inconsistent-with-equals comparator'
-        def tree = new TreeSet<>(String.CASE_INSENSITIVE_ORDER)
+        def tree = null // hint: TreeSet, case insensitive
         tree.addAll(['MMM', 'aaa', 'zzz'])
 
         and: 'hashSet with exact elements as tree'
-        def hash = new HashSet<>(tree)
+        def hash = null // hint: create hashSet from tree
 
         expect: 'set1.equals(set2) is true if sizes equal and every element of set2 is also contained in set1'
-        hash == tree
-        tree == hash
+        1 == 1 // verify that hash equals tree
+        1 == 1 // verify that tree equals hash
 
         when: 'we replace MMM with its lowercase equivalent mmm'
         hash.remove 'MMM'
         hash.add 'mmm'
 
-        then:
-        hash != tree // hash not contains MMM element that is contained in tree
-        Objects.equals(tree, hash) // contrary to java - in groovy: tree.equals(hash) will return false
+        then: 'hash not contains MMM element that is contained in tree'
+        1 != 1 // verify that hash is not equal to tree
+        1 == 1 // verify that tree is equal to hash, hint: contrary to java - in groovy: tree.equals(hash) will return false
     }
 
     def 'sorted list is often not easily transformable into sorted tree'() {
@@ -57,20 +58,20 @@ class SetMembershipWorkshop extends Specification {
         def b = new Person(name: 'B', salary: 1500)
         def c = new Person(name: 'C', salary: 1000)
         def persons = [a, b, c]
-        Comparator<Person> salaryOrder = Comparator.comparing({ it.salary })
+        Comparator<Person> salaryOrder = null // hint: by salary
 
         expect: 'comparator is not consistent with equals'
         a != c
         salaryOrder.compare(a, c) == 0
 
         when: 'sorted by salary'
-        Collections.sort(persons, salaryOrder)
+        // sort persons using salaryOrder, hint: Collections.sort
 
         then: 'a = c < b'
         persons == [a, c, b]
 
         when: 'suppose your manager asks you to maintain a data structure in the same order'
-        def tree = new TreeSet<>(salaryOrder)
+        def tree = null // hint: TreeSet, hint 2: bad approach!
         tree.addAll(persons)
 
         then: 'only a and b, duplicates elided!'

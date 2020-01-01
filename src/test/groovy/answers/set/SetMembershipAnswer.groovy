@@ -23,6 +23,7 @@ class SetMembershipAnswer extends Specification {
         then: 'comparator not only determines order but also membership'
         persons.size() == 2
         persons.collect { it.lastName } == ['A1', 'B']
+
         and: 'persons size is 2, but contains 3 elements'
         persons.contains a1
         persons.contains b
@@ -46,9 +47,9 @@ class SetMembershipAnswer extends Specification {
         hash.remove 'MMM'
         hash.add 'mmm'
 
-        then:
-        hash != tree // hash not contains MMM element that is contained in tree
-        Objects.equals(tree, hash) // contrary to java - in groovy: tree.equals(hash) will return false
+        then: 'hash not contains MMM element that is contained in tree'
+        hash != tree
+        Objects.equals(tree, hash) // hint: contrary to java - in groovy: tree.equals(hash) will return false
     }
 
     def 'sorted list is often not easily transformable into sorted tree'() {
@@ -70,7 +71,7 @@ class SetMembershipAnswer extends Specification {
         persons == [a, c, b]
 
         when: 'suppose your manager asks you to maintain a data structure in the same order'
-        def tree = new TreeSet<>(salaryOrder)
+        def tree = new TreeSet<>(salaryOrder) // bad approach
         tree.addAll(persons)
 
         then: 'only a and b, duplicates elided!'
