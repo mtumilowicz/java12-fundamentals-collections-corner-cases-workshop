@@ -1,4 +1,4 @@
-package answers.set
+package person
 
 class Person {
     String name

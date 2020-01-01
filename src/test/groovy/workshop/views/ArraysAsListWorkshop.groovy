@@ -1,8 +1,8 @@
-package answers.views
+package workshop.views
 
 import spock.lang.Specification
 
-class ArraysAsList extends Specification {
+class ArraysAsListWorkshop extends Specification {
 
     // Objects stored into instance fields are not shared between feature methods.
     // Instead, every feature method gets its own object.

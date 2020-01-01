@@ -1,8 +1,8 @@
-package answers.views
+package workshop.views
 
 import spock.lang.Specification
 
-class MapAndItsCollections extends Specification {
+class MapAndItsCollectionsWorkshop extends Specification {
 
     def originalMap = Map.of(
             1, 'a',

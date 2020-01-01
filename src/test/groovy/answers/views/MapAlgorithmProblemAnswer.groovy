@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 import java.util.stream.Collectors
 
-class MapAlgorithmProblem extends Specification {
+class MapAlgorithmProblemAnswer extends Specification {
     /*
     Given two maps mapA and mapB, fnd the keys of mapB
     corresponding to values that occur in both maps

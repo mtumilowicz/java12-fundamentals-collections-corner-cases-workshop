@@ -1,8 +1,9 @@
-package answers.set
+package workshop.set
 
+import person.Person
 import spock.lang.Specification
 
-class SetMembership extends Specification {
+class SetMembershipWorkshop extends Specification {
 
     def 'sorted answers.set contains no two elements (a, b) where compare(a, b) == 0'() {
 
