@@ -1,4 +1,4 @@
-package views
+package answers.views
 
 import spock.lang.Specification
 
@@ -83,7 +83,7 @@ class MapAndItsCollections extends Specification {
         !map.containsValue('a')
     }
 
-    def 'if you remove entry from entry set - entry is removed from map as well'() {
+    def 'if you remove entry from entry answers.set - entry is removed from map as well'() {
         given:
         def entries = map.entrySet()
 

@@ -1,4 +1,4 @@
-package views
+package answers.views
 
 import spock.lang.Specification
 
@@ -11,7 +11,7 @@ class MapAlgorithmProblem extends Specification {
     var mapA = Map.of(1, "a", 2, "b", 3, "c")
     var mapB = Map.of(5, "a", 6, "d", 7, "c")
 
-    Result should be a set containing: [5, 7]
+    Result should be a answers.set containing: [5, 7]
      */
 
     def mapA = Map.of(1, "a", 2, "b", 3, "c")

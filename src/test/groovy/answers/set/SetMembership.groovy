@@ -1,10 +1,10 @@
-package set
+package answers.set
 
 import spock.lang.Specification
 
 class SetMembership extends Specification {
 
-    def 'sorted set contains no two elements (a, b) where compare(a, b) == 0'() {
+    def 'sorted answers.set contains no two elements (a, b) where compare(a, b) == 0'() {
 
         given: 'SortedSet with inconsistent-with-equals comparator'
         SortedSet<Person> persons = new TreeSet<>(Comparator.comparing({ it.name }))
@@ -28,7 +28,7 @@ class SetMembership extends Specification {
         persons.contains a2
     }
 
-    def 'equals between two well-defined and real-life set could NOT be symmetric'() {
+    def 'equals between two well-defined and real-life answers.set could NOT be symmetric'() {
 
         given: 'tree with inconsistent-with-equals comparator'
         def tree = new TreeSet<>(String.CASE_INSENSITIVE_ORDER)
