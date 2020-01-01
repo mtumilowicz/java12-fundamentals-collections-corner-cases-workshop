@@ -6,7 +6,7 @@ class ArraysAsListAnswer extends Specification {
 
     // Objects stored into instance fields are not shared between feature methods.
     // Instead, every feature method gets its own object.
-    Integer[] array = [ 1, 2, 3 ]
+    Integer[] array = [1, 2, 3]
 
     def 'if you modify underlying array - Arrays.asList is modified as well'() {
         given:
@@ -35,7 +35,7 @@ class ArraysAsListAnswer extends Specification {
         List<Integer> list = Arrays.asList(array)
 
         when:
-        list.add(4)
+        list << 4
 
         then:
         thrown(UnsupportedOperationException)
